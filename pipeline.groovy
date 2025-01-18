@@ -1,19 +1,15 @@
-pipeline {
+echo 'pipeline {
     agent any
     stages {
-        stage('Hello World') {
+        stage("Clone Repository") {
             steps {
-                echo 'Hello, World!'
+                git "https://github.com/NinaMadu/pipline-first"
             }
         }
-        stage('Create Directory') {
+        stage("Run Python Script") {
             steps {
-                script {
-                    sh '''#!/bin/bash
-                    mkdir my_directory
-                    '''
-                }
+                sh "python3 print.py"
             }
         }
     }
-}
+}' > Jenkinsfile
